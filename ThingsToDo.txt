@@ -1,0 +1,21 @@
+remove 'status' tab in migration
+
+make tabs of expirations
+
+make query for notification base on 'date_expiration LIKE DATE_ADD( CURDATE(), INTERVAL 2 MONTH)' for two months
+                                    'date_expiration LIKE DATE_ADD( CURDATE(), INTERVAL 1 MONTH)' for one months
+                                    'date_expiration LIKE CURDATE()' for expiration date
+
+*fix the if conditions*
+
+
+SELECT par_id, par_name, par_description, par_opr,
+                        DATE_FORMAT(date_signed, '%b-%d-%Y') AS date_signed,
+                        DATE_FORMAT(date_expiration, '%b-%d-%Y') AS date_expiration,
+                        DATE_FORMAT(date_signed, '%Y-%m-%d') AS date_signed_edit,
+                        DATE_FORMAT(date_expiration, '%Y-%m-%d') AS date_expiration_edit, 
+                        CURDATE() AS curr_date, DATE_SUB( date_expiration, INTERVAL 2 MONTH) AS tm,
+                        DATE_SUB( date_expiration, INTERVAL 1 MONTH) AS om FROM `moas`  
+ORDER BY `date_expiration_edit` ASC
+
+
