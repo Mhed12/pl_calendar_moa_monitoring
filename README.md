@@ -8,4 +8,4 @@ Feb 2020 – Mar 2020
 
 ## Developed by
 
-Mohammed Dela Cruz
+Mohammed B. Dela Cruz
